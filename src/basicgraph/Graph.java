@@ -1,6 +1,7 @@
 package basicgraph;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -122,7 +123,13 @@ public abstract class Graph {
 	 */
 	public List<Integer> degreeSequence() {
 		// XXX: Implement in part 1 of week 1
-		return null;
+		List<Integer> ds = new ArrayList<>();
+		for (int v = 0; v < numVertices; v++) {
+			ds.add(getNeighbors(v).size() + getInNeighbors(v).size());
+		}
+		Collections.sort(ds);
+		Collections.reverse(ds);
+		return ds;
 	}
 	
 	/**
@@ -228,7 +235,7 @@ public abstract class Graph {
 
 	
 	public static void main (String[] args) {
-		GraphLoader.createIntersectionsFile("data/maps/myucsd.map", "data/intersections/myucsd.intersections");
+		//GraphLoader.createIntersectionsFile("data/maps/myucsd.map", "data/intersections/myucsd.intersections");
 		
 
 		// For testing of Part 1 functionality
@@ -244,6 +251,13 @@ public abstract class Graph {
 		System.out.println(graphFromFile);
 		
 		System.out.println("Observe all degrees are <= 12.");
+		List<Integer> ds1 = graphFromFile.degreeSequence();
+		int ds1Sum = 0;
+		for (int degree : ds1) {
+			ds1Sum += degree;
+		}
+		boolean ds1Even = (ds1Sum % 2) == 0;
+		System.out.println("Sum of degress even = " + ds1Even);
 		System.out.println("****");
 
 		System.out.println("\n****");
