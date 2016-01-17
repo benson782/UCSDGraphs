@@ -6,7 +6,7 @@ import java.util.List;
 import geography.GeographicPoint;
 
 /** 
- * @author Benson
+ * @author Benson Malonzo
  *
  * A class that represents a map location and 
  * the edges from the location.
@@ -52,14 +52,14 @@ public class MapNode {
 	}
 	
 	/**
-	 * Get a list of neighbors from the node
+	 * Get a list of edges from the node
 	 * @return List of neighbors
 	 */
-	public List<GeographicPoint> getNeighbors() {
-		List<GeographicPoint> n = new ArrayList<>();
+	public List<GeographicPoint> getEdges() {
+		List<GeographicPoint> edgeList = new ArrayList<>();
 		for (MapEdge e : edges) {
-			n.add(e.getEnd());
+			edgeList.add(e.getEnd());
 		}
-		return n;
+		return edgeList;
 	}
 }

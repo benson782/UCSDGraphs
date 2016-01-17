@@ -3,9 +3,10 @@ package roadgraph;
 import geography.GeographicPoint;
 
 /**
- * @author Benson
+ * @author Benson Malonzo
  *
  * A class the represents a map node's edge.
+ * 
  */
 
 public class MapEdge {

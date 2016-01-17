@@ -1,7 +1,7 @@
 /**
  * @author UCSD MOOC development team and YOU
  * 
- * A class which reprsents a graph of geographic locations
+ * A class which represents a graph of geographic locations
  * Nodes in the graph are intersections between 
  *
  */
@@ -69,9 +69,7 @@ public class MapGraph {
 			count += node.getNumEdges();
 		}
 		return count;
-	}
-
-	
+	}	
 	
 	/** Add a node corresponding to an intersection at a Geographic Point
 	 * If the location is already in the graph or null, this method does 
@@ -130,7 +128,6 @@ public class MapGraph {
 		vertices.put(from, node);
 	}
 	
-
 	/** Find the path from start to goal using breadth first search
 	 * 
 	 * @param start The starting location
@@ -205,7 +202,7 @@ public class MapGraph {
 			}
 			
 			// get the current's neighbors
-			for (GeographicPoint n : vertices.get(current).getNeighbors()) {
+			for (GeographicPoint n : vertices.get(current).getEdges()) {
 				if (!visited.contains(n)) {
 					// add to visited
 					visited.add(n);
